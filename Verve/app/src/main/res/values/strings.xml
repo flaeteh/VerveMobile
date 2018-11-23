@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Verve</string>
+    <string name="forgot_password">Enter your e-mail address and we will send you a link to reset your password</string>
+</resources>
