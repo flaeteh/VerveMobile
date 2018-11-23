@@ -1,10 +1,13 @@
 package capstone.com.verve.Model;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.Toast;
+import capstone.com.verve.View.ForumFeedActivity;
+import capstone.com.verve.View.LoginActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -48,7 +51,8 @@ public class Login {
                             if (dataSnapshot.exists()) {
                                 String role = dataSnapshot.child("role").getValue(String.class);
                                 if (role.equals(patient)) {
-                                    Toast.makeText(context, "patient", Toast.LENGTH_LONG).show();
+                                    //Toast.makeText(context, "patient", Toast.LENGTH_LONG).show();
+                                    sendPatientToForum(context);
                                 }
                             }
 
@@ -64,6 +68,13 @@ public class Login {
                 }
             }
         });
+    }
+
+    private void sendPatientToForum(Context context) {
+        Intent intent = new Intent(context, ForumFeedActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        context.startActivity(intent);
+
     }
 }
 

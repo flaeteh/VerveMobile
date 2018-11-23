@@ -52,4 +52,5 @@ public class LoginActivity extends AppCompatActivity {
         etUsername.setHintTextColor(getResources().getColor(R.color.Pale));
         etPassword.setHintTextColor(getResources().getColor(R.color.Pale));
     }
+
 }
