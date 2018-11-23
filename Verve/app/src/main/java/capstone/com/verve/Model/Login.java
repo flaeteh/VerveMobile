@@ -18,8 +18,10 @@ import com.google.firebase.database.*;
 public class Login {
     Users users = new Users();
     String patient = "Patient";
+    Boolean emailAddressChecker = false;
 
-    public void allowUserToLogin(EditText email, EditText password, Context context, FirebaseAuth auth) {
+
+    public void allowUserToLogin(EditText email, EditText password, Context context, FirebaseAuth auth, FirebaseUser user) {
         String emailAdd = email.getText().toString().trim();
         String userPassword = password.getText().toString().trim();
 
@@ -38,7 +40,7 @@ public class Login {
     }
 
 
-    private void userLogin(String email, String password, final Context context, FirebaseAuth auth) {
+    private void userLogin(String email, String password, final Context context, final FirebaseAuth auth) {
 
 
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -55,7 +57,7 @@ public class Login {
                                 String role = dataSnapshot.child("role").getValue(String.class);
                                 if (role.equals(patient)) {
                                     //Toast.makeText(context, "patient", Toast.LENGTH_LONG).show();
-                                    sendPatientToForum(context);
+                                    checkIfEmailIsVerified(context, auth);
                                 }
                             }
 
@@ -68,6 +70,8 @@ public class Login {
                     });
 
 
+                } else {
+                    Toast.makeText(context, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -78,6 +82,18 @@ public class Login {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);
 
+    }
+
+    private void checkIfEmailIsVerified(Context context, FirebaseAuth auth) {
+        FirebaseUser user = auth.getCurrentUser();
+        emailAddressChecker = user.isEmailVerified();
+
+        if (emailAddressChecker) {
+            sendPatientToForum(context);
+        } else {
+            Toast.makeText(context, "Please Verify your account first", Toast.LENGTH_SHORT).show();
+            auth.signOut();
+        }
     }
 }
 

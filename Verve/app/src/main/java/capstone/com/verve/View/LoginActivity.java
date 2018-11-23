@@ -15,6 +15,9 @@ public class LoginActivity extends AppCompatActivity {
     Login login = new Login();
     EditText etUsername, etPassword;
     FirebaseAuth auth = null;
+    //FirebaseUser user
+
+    Boolean emailChecker = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -23,19 +26,20 @@ public class LoginActivity extends AppCompatActivity {
 
         etUsername = findViewById(R.id.etxt_username);
         etPassword = findViewById(R.id.etxt_password);
+        //user = FirebaseAuth.getInstance().getCurrentUser();
 
         auth = FirebaseAuth.getInstance();
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // User is signed in
-            Intent i = new Intent(LoginActivity.this, ForumFeedActivity.class);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            startActivity(i);
-        } else {
-            // User is signed out
-            
-        }
+
+//        if (user != null) {
+//            // User is signed in
+//            Intent i = new Intent(LoginActivity.this, ForumFeedActivity.class);
+//            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//            startActivity(i);
+//        } else {
+//            // User is signed out
+//
+//        }
 
         setHintTextColor();
     }
@@ -54,7 +58,8 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         if (v.getId() == R.id.btn_login){
-            login.allowUserToLogin(etUsername, etPassword, LoginActivity.this, auth);
+
+            login.allowUserToLogin(etUsername, etPassword, LoginActivity.this, auth, user);
         }
     }
 
@@ -65,5 +70,7 @@ public class LoginActivity extends AppCompatActivity {
         etUsername.setHintTextColor(getResources().getColor(R.color.Pale));
         etPassword.setHintTextColor(getResources().getColor(R.color.Pale));
     }
+
+
 
 }
