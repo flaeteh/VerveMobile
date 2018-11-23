@@ -22,7 +22,10 @@
         </activity>
         <activity android:name=".View.ForgotPasswordActivity">
         </activity>
-        <activity android:name=".View.ForumFeedActivity">
+        <activity
+                android:name=".View.ForumFeedActivity"
+                android:label="@string/title_activity_forum_feed"
+                android:theme="@style/AppTheme">
         </activity>
     </application>
 
