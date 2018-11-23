@@ -83,8 +83,10 @@
                                   </option>
                                   <option name="values">
                                     <map>
+                                      <entry key="assetType" value="IMAGE" />
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="outputName" value="ic_search" />
+                                      <entry key="imageAsset" value="D:\Documents\THESIS1\Mockup\profileicon.png" />
+                                      <entry key="outputName" value="ic_profile_black" />
                                     </map>
                                   </option>
                                 </PersistentState>
