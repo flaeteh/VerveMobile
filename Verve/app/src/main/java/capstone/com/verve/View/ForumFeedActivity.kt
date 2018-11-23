@@ -46,9 +46,16 @@ class ForumFeedActivity : AppCompatActivity() {
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
+<<<<<<< HEAD
         click_fab.setOnClickListener { view ->
 
         }
+=======
+        /*fab.setOnClickListener { view ->
+            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show()
+        }*/
+>>>>>>> fa7c21137e88ba36856cbf87cb7a4d9ab48f5cbd
 
     }
 

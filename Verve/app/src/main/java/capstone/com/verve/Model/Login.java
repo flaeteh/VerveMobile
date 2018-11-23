@@ -21,7 +21,7 @@ public class Login {
     Boolean emailAddressChecker = false;
 
 
-    public void allowUserToLogin(EditText email, EditText password, Context context, FirebaseAuth auth, FirebaseUser user) {
+    public void allowUserToLogin(EditText email, EditText password, Context context, FirebaseAuth auth) {
         String emailAdd = email.getText().toString().trim();
         String userPassword = password.getText().toString().trim();
 
