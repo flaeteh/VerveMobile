@@ -3,11 +3,13 @@ package capstone.com.verve.View;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import capstone.com.verve.Model.Login;
 import capstone.com.verve.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     Login login = new Login();
@@ -23,6 +25,17 @@ public class LoginActivity extends AppCompatActivity {
         etPassword = findViewById(R.id.etxt_password);
 
         auth = FirebaseAuth.getInstance();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
+            // User is signed in
+            Intent i = new Intent(LoginActivity.this, ForumFeedActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(i);
+        } else {
+            // User is signed out
+            
+        }
 
         setHintTextColor();
     }

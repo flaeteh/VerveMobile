@@ -25,10 +25,13 @@ public class Login {
 
         if (emailAdd.isEmpty()) {
             Toast.makeText(context, "Please Enter your email", Toast.LENGTH_LONG).show();
+            return;
         }
         if (userPassword.isEmpty()) {
             Toast.makeText(context, "Please Enter you password", Toast.LENGTH_LONG).show();
+            return;
         }
+
 
         userLogin(emailAdd, userPassword, context, auth);
 

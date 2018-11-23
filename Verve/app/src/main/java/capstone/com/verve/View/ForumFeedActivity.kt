@@ -102,7 +102,7 @@ class ForumFeedActivity : AppCompatActivity() {
             savedInstanceState: Bundle?
         ): View? {
             val rootView = inflater.inflate(R.layout.fragment_forum_feed, container, false)
-            rootView.section_label.text = getString(R.string.section_format, arguments?.getInt(ARG_SECTION_NUMBER))
+            //rootView.section_label.text = getString(R.string.section_format, arguments?.getInt(ARG_SECTION_NUMBER))
             return rootView
         }
 
