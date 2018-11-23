@@ -14,12 +14,17 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import capstone.com.verve.Interface.AcceptListener
 
 import capstone.com.verve.R
+import capstone.com.verve.View.Fragments.AddPostFragment
 import kotlinx.android.synthetic.main.activity_forum_feed.*
 import kotlinx.android.synthetic.main.fragment_forum_feed.view.*
 
-class ForumFeedActivity : AppCompatActivity() {
+class ForumFeedActivity : AppCompatActivity(), AcceptListener {
+    override fun onSubmit() {
+       //. loadUser()
+    }
 
     /**
      * The [android.support.v4.view.PagerAdapter] that will provide
@@ -46,46 +51,18 @@ class ForumFeedActivity : AppCompatActivity() {
         container.addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tabs))
         tabs.addOnTabSelectedListener(TabLayout.ViewPagerOnTabSelectedListener(container))
 
-<<<<<<< HEAD
+
         click_fab.setOnClickListener { view ->
-
-        }
-=======
-        /*fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }*/
->>>>>>> fa7c21137e88ba36856cbf87cb7a4d9ab48f5cbd
-
-    }
-
-
-   /* override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_forum_feed, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        val id = item.itemId
-
-        if (id == R.id.action_settings) {
-            return true
+          showPostDialog()
         }
 
-        return super.onOptionsItemSelected(item)
-    }*/
+    }
 
 
     /**
-     * A [FragmentPagerAdapter] that returns a fragment corresponding to
-     * one of the sections/tabs/pages.
+     * MAKE SEPARATE ADAPTER CLASS!!!!!!
      */
     inner class SectionsPagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
-
         override fun getItem(position: Int): Fragment {
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
@@ -93,9 +70,15 @@ class ForumFeedActivity : AppCompatActivity() {
         }
 
         override fun getCount(): Int {
-            // Show 3 total pages.
-            return 3
+            return 2
         }
+    }
+
+    private fun showPostDialog() {
+        val fm = supportFragmentManager
+        val editNameDialogFragment = AddPostFragment.newInstance("What's Up?")
+        editNameDialogFragment.setListener(this@ForumFeedActivity)
+        editNameDialogFragment.show(fm, "fragment_edit_name")
     }
 
     /**
@@ -107,6 +90,8 @@ class ForumFeedActivity : AppCompatActivity() {
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
         ): View? {
+
+            //RECYCLERVIEW
             val rootView = inflater.inflate(R.layout.fragment_forum_feed, container, false)
             //rootView.section_label.text = getString(R.string.section_format, arguments?.getInt(ARG_SECTION_NUMBER))
             return rootView
