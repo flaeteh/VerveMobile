@@ -67,6 +67,7 @@
             android:textColor="@android:color/white"
             android:textSize="16sp"
             android:textStyle="bold"
+            android:onClick="option"
             app:layout_constraintBottom_toTopOf="@+id/guideline6"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
             app:layout_constraintStart_toStartOf="@+id/guideline"
@@ -143,7 +144,7 @@
             app:srcCompat="@drawable/lockicon"/>
 
     <EditText
-            android:id="@+id/et_username"
+            android:id="@+id/etxt_username"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="40dp"
@@ -165,7 +166,7 @@
             app:layout_constraintTop_toTopOf="@+id/guideline5"/>
 
     <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/etxt_password"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="40dp"
