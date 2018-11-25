@@ -1,4 +1,4 @@
-package capstone.com.verve.Model;
+package capstone.com.verve.Presenter;
 
 import java.util.Date;
 

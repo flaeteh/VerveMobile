@@ -1,6 +1,7 @@
 package capstone.com.verve.View.Fragments
 
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.DialogFragment
@@ -16,6 +17,8 @@ import capstone.com.verve.R
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+
+private const val GALLERY_PICK = 1
 
 /**
  * A simple [Fragment] subclass.
@@ -55,6 +58,13 @@ class AddPostFragment : DialogFragment(), AcceptListener {
     // TODO: Rename method, update argument and hook method into UI event
     fun onButtonPressed(uri: Uri) {
         listener?.onFragmentInteraction(uri)
+    }
+
+    private fun openGallery() {
+        val galleryIntent = Intent()
+        galleryIntent.action = Intent.ACTION_GET_CONTENT
+        galleryIntent.type = "image/*"
+        startActivityForResult(galleryIntent, GALLERY_PICK)
     }
 
     lateinit var acceptListen: AcceptListener

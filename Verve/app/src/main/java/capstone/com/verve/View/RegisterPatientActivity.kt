@@ -6,13 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.EditText
 import android.widget.RadioButton
-import android.widget.Toast
-import capstone.com.verve.Model.Users
-import capstone.com.verve.Model.Registration
+import capstone.com.verve.Presenter.Registration
 import capstone.com.verve.R
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 

@@ -23,7 +23,7 @@ import kotlinx.android.synthetic.main.fragment_forum_feed.view.*
 
 class ForumFeedActivity : AppCompatActivity(), AcceptListener {
     override fun onSubmit() {
-       //. loadUser()
+        //. loadUser()
     }
 
     /**
@@ -40,7 +40,7 @@ class ForumFeedActivity : AppCompatActivity(), AcceptListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forum_feed)
 
-       // setSupportActionBar(toolbar)
+        // setSupportActionBar(toolbar)
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = SectionsPagerAdapter(supportFragmentManager)
@@ -53,7 +53,7 @@ class ForumFeedActivity : AppCompatActivity(), AcceptListener {
 
 
         click_fab.setOnClickListener { view ->
-          showPostDialog()
+            showPostDialog()
         }
 
     }
